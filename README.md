@@ -1,5 +1,5 @@
 
-<div style="algin=center">
+<div align="center">
 
 ![LogoMakr_9xZ0jO](https://user-images.githubusercontent.com/42722816/91244447-ad585700-e74c-11ea-965e-c52b6611c591.png)
 
