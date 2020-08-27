@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {*} grid
+ * @function getAllNodes
+ * @description store all nodes in the Nodes array
+ */
 function getAllNodes(grid) {
   const nodes = [];
   for (const row of grid) {
@@ -7,10 +13,23 @@ function getAllNodes(grid) {
   }
   return nodes;
 }
+/**
+ *
+ * @param {*} unVisitedNode
+ * @function sortNodesByDistance
+ * @description sort Nodes By Distance
+ */
 function sortNodesByDistance(unVisitedNode) {
   unVisitedNode.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
 
+/**
+ *
+ * @param {*} node
+ * @param {*} grid
+ * @function updateUnvisitedNeighbors
+ * @description update Unvisited Neighbors
+ */
 function updateUnvisitedNeighbors(node, grid) {
   const unVisitedNeighbors = getUnVisitedNeighbors(node, grid);
   for (const neighbor of unVisitedNeighbors) {
@@ -18,6 +37,13 @@ function updateUnvisitedNeighbors(node, grid) {
     neighbor.previousNode = node;
   }
 }
+/**
+ *
+ * @param {*} node
+ * @param {*} grid
+ * @function getUnVisitedNeighbors
+ * @description get UnVisited Neighbors
+ */
 
 function getUnVisitedNeighbors(node, grid) {
   const neighbors = [];
@@ -28,7 +54,12 @@ function getUnVisitedNeighbors(node, grid) {
   if (col < grid.length - 1) neighbors.push(grid[row][col + 1]);
   return neighbors.filter((neighbor) => !neighbor.isVisited);
 }
-
+/**
+ *
+ * @param {*} finishNode
+ * @function getNodesInShortestPathOrder
+ * @description get Nodes In Shortest Path Order
+ */
 export function getNodesInShortestPathOrder(finishNode) {
   const nodesInShortestPathOrder = [];
   let currentNode = finishNode;
@@ -38,8 +69,14 @@ export function getNodesInShortestPathOrder(finishNode) {
   }
   return nodesInShortestPathOrder;
 }
-
-export function Algorithm(grid, startNode, finishNode) {
+/**
+ *
+ * @param {*} grid
+ * @param {*} startNode
+ * @param {*} finishNode
+ * @function
+ */
+export function Dijkstra(grid, startNode, finishNode) {
   const visitedNodesInOrder = [];
   startNode.distance = 0;
   const unvisitedNodes = getAllNodes(grid);

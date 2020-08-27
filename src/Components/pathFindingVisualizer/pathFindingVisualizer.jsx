@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Node from "./../Node/Node";
 import "./pathFindingVisualizer.css";
+import Welcome from "./../welcome/welcome";
 import {
-  Algorithm,
+  Dijkstra,
   getNodesInShortestPathOrder,
 } from "./../BFS Algorithm/BFS.js";
 const START_NODE_ROW = 0;
@@ -89,7 +90,7 @@ export default class pathFindingVisualizer extends Component {
     const { Grid } = this.state;
     const startNode = Grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = Grid[FINISH_NODE_ROW][FINISH_NODE_COL];
-    const visitedNodesInOrder = Algorithm(Grid, startNode, finishNode);
+    const visitedNodesInOrder = Dijkstra(Grid, startNode, finishNode);
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
     this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
   }
@@ -106,12 +107,23 @@ export default class pathFindingVisualizer extends Component {
     const { Grid, mouseIsPressed } = this.state;
     return (
       <>
-        <button
-          className="PathFinding__BFSButton"
-          onClick={() => this.visualizeAlgorithm()}
-        >
-          Visualize BFS Algorithm
-        </button>
+        <div>
+          <Welcome />
+          <button
+            className="PathFinding__BFSButton"
+            onClick={() => this.visualizeAlgorithm()}
+          >
+            Visualize BFS Algorithm
+          </button>
+          <select name="Algorithm" className="Select">
+            <option value="Dijkstra" className="Select__option">
+              Dijkstra
+            </option>
+            <option value="Dijkstra" className="Select__option">
+              BFS
+            </option>
+          </select>
+        </div>
         <div className="Grid">
           {Grid.map((row, rowIdx) => {
             return (

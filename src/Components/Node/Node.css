@@ -7,11 +7,17 @@
 }
 
 .node-finish {
-  background-color: red;
+  background-image: url(./../../assets/images/map-marker-alt-solid.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .node-start {
-  background-color: green;
+  background-image: url(./../../assets/images/galactic-senate-brands.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .node-visited {
