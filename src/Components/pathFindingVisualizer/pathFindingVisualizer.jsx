@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import Node from "./../Node/Node";
 import "./pathFindingVisualizer.css";
 import Welcome from "./../welcome/welcome";
-import Footer from "./../welcome/Fotter";
+import Footer from "./../welcome/Footer";
 import {
   Dijkstra,
   getNodesInShortestPathOrder,
 } from "./../BFS Algorithm/BFS.js";
 const START_NODE_ROW = 0;
 const START_NODE_COL = 49;
-const FINISH_NODE_ROW = 15;
-const FINISH_NODE_COL = 1;
+const FINISH_NODE_ROW = 10;
+const FINISH_NODE_COL = 10;
 
+/**
+ * @function
+ * @description this function create a new Grid by start in the first row then create an array that pushes node in every col then pushes the row in the grid array
+ * @returns {array} Grid
+ */
 const getInitialGrid = () => {
   const Grid = [];
   for (let row = 0; row < 20; row++) {
@@ -23,6 +28,13 @@ const getInitialGrid = () => {
   }
   return Grid;
 };
+/**
+ *
+ * @param {*} col
+ * @param {*} row
+ * @function createNode
+ * @description returns node proprieties
+ */
 const createNode = (col, row) => {
   return {
     col,
@@ -35,6 +47,15 @@ const createNode = (col, row) => {
     previousNode: null,
   };
 };
+
+/**
+ *
+ * @param {*} grid
+ * @param {*} row
+ * @param {*} col
+ * @function getNewGridWithWallToggled
+ * @description remove the walls from the grid
+ */
 const getNewGridWithWallToggled = (grid, row, col) => {
   const newGrid = grid.slice();
   const node = newGrid[row][col];
@@ -55,6 +76,10 @@ export default class pathFindingVisualizer extends Component {
     };
   }
 
+  /**
+   * @function componentDidMount
+   * @description Create new grid and set it in the state
+   */
   componentDidMount = () => {
     const Grid = getInitialGrid();
     this.setState({ Grid });
@@ -76,14 +101,14 @@ export default class pathFindingVisualizer extends Component {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
           this.animateShortestPath(nodesInShortestPathOrder);
-        }, 10 * i);
+        }, 5 * i);
         return;
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-visited";
-      }, 10 * i);
+      }, 5 * i);
     }
   };
 
