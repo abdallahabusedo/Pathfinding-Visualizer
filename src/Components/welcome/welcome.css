@@ -8,6 +8,14 @@
   font-family: "Russo One", sans-serif;
 }
 .welcome__MyName {
+  padding: 5px;
   text-align: center;
   font-family: "Russo One", sans-serif;
+  font-size: 25px;
+}
+
+.Footer__Icon {
+  color: red;
+  padding-left: 10px;
+  font-size: 35px;
 }

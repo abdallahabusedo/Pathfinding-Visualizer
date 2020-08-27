@@ -8,7 +8,6 @@ class welcome extends Component {
         <div className="welcome__Logo">
           <img src={Logo} className="welcome__Logo" alt="logo" />
         </div>
-        <h5 className="welcome__MyName">MADE WITH LOVE BY ABDALLAH ABU SEDO</h5>
       </div>
     );
   }

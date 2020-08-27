@@ -1,3 +1,26 @@
+export class Queue {
+  constructor(ele) {
+    if (ele instanceof Array) {
+      this.items = ele;
+    } else {
+      this.items = [];
+    }
+    this.length = this.items.length;
+  }
+
+  enqueue(ele) {
+    this.length += 1;
+    return this.items.push(ele);
+  }
+
+  dequeue() {
+    if (this.length > 0) {
+      this.length -= 1;
+    }
+    return this.items.shift();
+  }
+}
+
 /**
  *
  * @param {*} grid
@@ -94,3 +117,29 @@ export function Dijkstra(grid, startNode, finishNode) {
     updateUnvisitedNeighbors(closestNode, grid);
   }
 }
+
+// export function BFS(grid, startNode, finishNode) {
+//   let queue = new Queue();
+//   queue.enqueue(startNode);
+//   cameFrom[startNode] = null;
+//   while (true) {
+//     current = queue.dequeue();
+//     current.visited = true;
+//     path.push(current.id);
+//     if (current.id === finishNode) {
+//       break;
+//     }
+//     current.adj.forEach((id) => {
+//       if (cameFrom[id]) {
+//       } else {
+//         cameFrom[id] = current.id;
+//       }
+
+//       let node = getNodeById(graph, id);
+//       if (!node.visited) {
+//         node.visited = true;
+//         queue.enqueue(node);
+//       }
+//     });
+//   }
+// }

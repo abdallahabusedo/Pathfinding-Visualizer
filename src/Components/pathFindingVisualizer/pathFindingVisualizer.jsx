@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Node from "./../Node/Node";
 import "./pathFindingVisualizer.css";
 import Welcome from "./../welcome/welcome";
+import Footer from "./../welcome/Fotter";
 import {
   Dijkstra,
   getNodesInShortestPathOrder,
@@ -151,6 +152,7 @@ export default class pathFindingVisualizer extends Component {
             );
           })}
         </div>
+        <Footer />
       </>
     );
   }
