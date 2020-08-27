@@ -39,7 +39,7 @@ export function getNodesInShortestPathOrder(finishNode) {
   return nodesInShortestPathOrder;
 }
 
-export function BFS(grid, startNode, finishNode) {
+export function Algorithm(grid, startNode, finishNode) {
   const visitedNodesInOrder = [];
   startNode.distance = 0;
   const unvisitedNodes = getAllNodes(grid);
